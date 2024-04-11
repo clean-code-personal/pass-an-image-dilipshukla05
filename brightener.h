@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
-
+#include<iostream>
+#include<memory>
+using namespace std;
 struct Image {
 	int rows;
 	int columns;
@@ -9,9 +11,9 @@ struct Image {
 
 class ImageBrightener {
 private:
-	Image m_inputImage;
+	shared_ptr<Image> m_inputImage;
 public:
-	ImageBrightener(Image& inputImage);
+	ImageBrightener(shared_ptr<Image> inputImage);
 	int BrightenWholeImage();
-	Image GetImage();
+	shared_ptr<Image> GetImage();
 };
